@@ -32,6 +32,8 @@ Last updated: 2026-11-25 (starter kit copy)
 ## Decided in M0
 - Ephemeris kernel (T2, 2026-11-25): JPL DE440s (`de440s.bsp`, 32,726,016 bytes). Read from the file itself, its range is 1849-12-25 to 2150-01-21 UTC, which covers the required 1900-2100. Chosen over full DE440 because it is far smaller (about 32 MB) and the extra range is not needed. Fetched once by `services/calc/scripts/fetch_ephemeris.py`, not committed. SHA-256 recorded for reference only (not checked against a published value): `c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2`. Whether DE440s accuracy suffices for the Moon is unverified; to be judged against the golden set in T4, not assumed.
 
+- Local time handling (T3, 2026-11-25; founder accepted the proposed defaults): the calc service takes an IANA timezone name in the request and never derives it from coordinates (place search is a backend job, FR1). Nonexistent local times (clock-forward gap) and ambiguous ones (clock-back overlap) are rejected with a clear error; no `fold` choice is guessed. Offsets come from the IANA tz database via the `tzdata` package (installed version 2026.6). A tz database update can change historical offsets, so the tzdata version is a calculation input; it is not yet part of `engine_version` (to be handled at T11). Historical Indian offsets are unverified until golden cases exist.
+
 ## Open risks and unanswered questions
 1. Accuracy: needs the golden-set test plan in build-document-v1 before any paid launch.
 2. Unknown or approximate birth time makes dasha timing unreliable; see the confidence model in build-document-v1 section 5.

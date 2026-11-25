@@ -31,4 +31,4 @@ Health check: `GET http://127.0.0.1:8000/health` returns `{"status": "ok", "engi
 OpenAPI docs: `http://127.0.0.1:8000/docs`.
 
 ## Status
-M0 tasks T1 (scaffolding) and T2 (ephemeris loading) done. No calculations exist yet.
+M0 tasks T1 (scaffolding), T2 (ephemeris loading) and T3 (time and place) done. No calculations exist yet.
