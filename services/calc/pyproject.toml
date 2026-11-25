@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.110",
     "uvicorn>=0.29",
+    "skyfield>=1.48",
 ]
 
 [project.optional-dependencies]

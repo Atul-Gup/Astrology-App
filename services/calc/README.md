@@ -11,6 +11,14 @@ python -m venv .venv
 
 Requires Python 3.11 or newer.
 
+Download the ephemeris kernel once (about 32 MB, not committed):
+
+```powershell
+.\.venv\Scripts\python.exe scripts/fetch_ephemeris.py
+```
+
+The service refuses to start without it and never downloads at runtime. Set `CALC_EPHEMERIS_PATH` to use a kernel stored elsewhere.
+
 ## Commands
 
 | What | Command |
@@ -23,4 +31,4 @@ Health check: `GET http://127.0.0.1:8000/health` returns `{"status": "ok", "engi
 OpenAPI docs: `http://127.0.0.1:8000/docs`.
 
 ## Status
-M0 task T1 (scaffolding) only. No calculations exist yet.
+M0 tasks T1 (scaffolding) and T2 (ephemeris loading) done. No calculations exist yet.

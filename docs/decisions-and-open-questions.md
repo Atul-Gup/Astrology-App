@@ -29,6 +29,9 @@ Last updated: 2026-11-25 (starter kit copy)
 - Dasha balance method
 - House system: whole-sign (default)
 
+## Decided in M0
+- Ephemeris kernel (T2, 2026-11-25): JPL DE440s (`de440s.bsp`, 32,726,016 bytes). Read from the file itself, its range is 1849-12-25 to 2150-01-21 UTC, which covers the required 1900-2100. Chosen over full DE440 because it is far smaller (about 32 MB) and the extra range is not needed. Fetched once by `services/calc/scripts/fetch_ephemeris.py`, not committed. SHA-256 recorded for reference only (not checked against a published value): `c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2`. Whether DE440s accuracy suffices for the Moon is unverified; to be judged against the golden set in T4, not assumed.
+
 ## Open risks and unanswered questions
 1. Accuracy: needs the golden-set test plan in build-document-v1 before any paid launch.
 2. Unknown or approximate birth time makes dasha timing unreliable; see the confidence model in build-document-v1 section 5.
