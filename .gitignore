@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+coverage/
+.DS_Store
+# ephemeris kernels are large; download locally, do not commit
+*.bsp
+# generated reports and PDFs
+out/
+*.pdf
